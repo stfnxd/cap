@@ -21,10 +21,10 @@ const Navbar = () => {
 
   return (
     <nav className="navbar navbar-expand-md bg-dark navbar-dark sticky-top shadow-sm">
-  <div className="container-fluid">
+    <div className="container-fluid">
 
     <Link className="navbar-brand" to="/">
-        C-A-P
+        Silk Road🐪
     </Link>
 
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,20 +32,39 @@ const Navbar = () => {
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-        {user ? <>
-        <button className='btn btn-danger btn-sm' onClick={handleLogout}>Log Off</button>
-        </>: <>
-        <li className="nav-item">
-            <Link className="nav-link" to="/auth/Register">
+        {user ? ( 
+        <>
+
+        <li className="navMargin nav-item">
+          <Link className="nav-link" to={'/create-ad'}>
+            Create Advert
+          </Link>
+        </li>
+        <li className="navMargin nav-item">
+          <Link className="nav-link" to={`/profile/${user.uid}`}>
+            Profile
+          </Link>
+        </li>
+        <li className="navMargin nav-item">
+          <Link className="nav-link" to={`/profile/${user.uid}`}>
+            Profile
+          </Link>
+        </li>
+        <button className='navMargin btn btn-secondary btn-sm' onClick={handleLogout}>Log Off</button>
+        </>
+        ) : (
+        <>
+        <li className="navMargin nav-item">
+            <Link className="nav-link" to="/register">
                 Register
             </Link>
         </li>
-        <li className="nav-item">
-            <Link className="nav-link" to="/auth/Login">
+        <li className="navMargin nav-item">
+            <Link className="nav-link" to="/login">
                 Login
             </Link>
         </li>
-        </>}
+        </>)}
        
       </ul>
     </div>
